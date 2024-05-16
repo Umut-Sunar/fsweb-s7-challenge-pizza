@@ -1,0 +1,49 @@
+.Hero-Section {
+  width: 1920px;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.Hero-Section-Header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 100px;
+  color: #ffff;
+  gap: 20px;
+}
+
+.Hero-Section-BrandName {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.Hero-Section-Slogan {
+  font-family: "Quattrocento", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 96px;
+  padding: 0;
+  margin: 0;
+}
+
+.Hero-Section-Background {
+  z-index: -1;
+  position: absolute;
+}
+
+.RouteOrderBtn {
+
+              background:#FDC913;
+              width:120px;
+              height: 40px;
+              border-radius: 20px;
+              border-width: 0;
+              font-family: "Quattrocento", serif;
+
+}

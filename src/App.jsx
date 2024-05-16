@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import workintech from '/workintech.svg'
-import './App.css'
+import { Routes, Route,Navigate} from "react-router-dom";
+import "./App.css";
+
+import MainPage from "./pages/MainPage/MainPage";
+import OrderPage from "./pages/OrderPage/OrderPage";
+import SuccessPage from "./pages/SuccessPage/SuccessPage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+
 
   return (
     <>
-      <div>
-        <a href="https://github.com/Workintech/fsweb-s7-challenge-pizza" target="_blank">
-          <img src={workintech} className="logo" alt="Workintech logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Workintech + 🍕</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Absolute Acı Pizza sayısı {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Workintech or Pizza logos to learn more
-      </p>
+      {/* Burada 3 tane sayfa ve routingler olacak */}
+
+      <Routes>
+
+        <Route path="/" element={<Navigate replace to="/Anasayfa" /> } />
+        <Route path="/Anasayfa" element={<MainPage />} />
+        <Route path="/Siparis-Olustur" element={<OrderPage  />} />
+        <Route path="/Success" element={<SuccessPage />} />
+        <Route path="*" element={<ErrorPage />} />
+
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
