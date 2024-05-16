@@ -47,7 +47,10 @@ export default function OrderFormSelectionField(props) {
  useEffect(()=> {
 
   setForm({...form, productName:product.productType})
+  
  },[])
+
+
 
   useEffect(() => {
     checkedList.length === 0
@@ -66,10 +69,13 @@ export default function OrderFormSelectionField(props) {
   useEffect(() => {
     const { size, dough, additionals, customerName } = errorStates;
 
-    if (size || dough || additionals || customerName) {
-      setIsFormValid(false);
-    } else if (!(size && dough && additionals && customerName)) {
+    if (size && dough && additionals && customerName) {
       setIsFormValid(true);
+    } 
+    else {
+
+      setIsFormValid(false)
+
     }
   }, [errorStates]);
 
@@ -155,7 +161,8 @@ export default function OrderFormSelectionField(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-console.log(isFormValid)
+
+
     if (isFormValid) {
       console.log('Axios adımı')
       axios.post(' https://reqres.in/api/pizza',form).then((res)=>{
@@ -175,9 +182,9 @@ console.log(isFormValid)
         setIsSubmitDisable(true)
         setTimeout(() => {
           navigate('/Success')
-        }, 2000);
+        }, 3000);
 
-        console.log(res.data)
+        console.log('3 Saniye sonra başarılı sayfasına gidecek ',res.data)
       } ).catch(err=> console.log('Form Gönderim Esnasında hata ',err))
      
     } 
